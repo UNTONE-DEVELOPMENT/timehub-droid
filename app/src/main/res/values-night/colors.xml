@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorAccent">#FFFFFF</color>
+    <color name="bgdarker">#0B0E2B</color>
+    <color name="cardbggra">#A1363636</color>
+    <color name="crdEvenDrk">#68363636</color>
+</resources>
