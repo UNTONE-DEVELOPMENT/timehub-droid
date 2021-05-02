@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/clay"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/gradient"
@@ -71,13 +72,14 @@
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="43dp"
+        android:layout_marginTop="44dp"
         android:layout_marginEnd="164dp"
         android:layout_marginRight="164dp"
         android:text="Hub"
         android:textColor="@color/white"
         android:textSize="30sp"
         app:layout_constraintEnd_toStartOf="@+id/cardView"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/textView"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -86,7 +88,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:alpha="@dimen/material_emphasis_disabled"
-        android:visibility="invisible"
+        android:visibility="gone"
         app:cardBackgroundColor="@color/black"
         tools:layout_editor_absoluteX="55dp"
         tools:layout_editor_absoluteY="215dp">
@@ -104,7 +106,7 @@
         android:layout_marginRight="56dp"
         android:layout_marginBottom="285dp"
         android:background="@drawable/gradient"
-        android:visibility="invisible"
+        android:visibility="gone"
         app:cardBackgroundColor="@color/crdEvenDrk"
         app:cardCornerRadius="15px"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -162,10 +164,11 @@
             android:layout_marginStart="20dp"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="255dp"
+            android:background="@drawable/btn"
             android:text="Cancel"
             android:textAllCaps="false"
             android:textColor="@color/white"
-            app:backgroundTint="@android:color/transparent"
+            app:backgroundTint="@null"
             app:strokeColor="@color/white"
             app:strokeWidth="1dp" />
 
@@ -177,23 +180,13 @@
             android:layout_marginStart="190dp"
             android:layout_marginLeft="190dp"
             android:layout_marginTop="255dp"
+            android:background="@drawable/btn"
             android:text="Done"
             android:textAllCaps="false"
             android:textColor="@color/white"
-            app:backgroundTint="@android:color/transparent"
+            app:backgroundTint="@null"
             app:strokeColor="@color/white"
             app:strokeWidth="1dp" />
-
-        <SeekBar
-            android:id="@+id/seekBar"
-            android:layout_width="220dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="50dp"
-            android:layout_marginLeft="50dp"
-            android:layout_marginTop="200dp"
-            android:background="@color/cardgray"
-            app:tickMarkTint="@color/white"
-            app:tickMarkTintMode="add" />
 
         <TextView
             android:id="@+id/textView8"
@@ -212,9 +205,29 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginLeft="20dp"
-            android:layout_marginTop="200dp"
+            android:layout_marginTop="195dp"
+            android:background="@drawable/btn"
+            android:padding="5dp"
             android:text="+0"
             android:textColor="@color/white" />
+
+        <com.google.android.material.slider.Slider
+            android:id="@+id/seekBar"
+            android:layout_width="230dp"
+            android:layout_height="26dp"
+            android:layout_marginStart="50dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="153dp"
+            android:stepSize="1.0"
+            app:haloColor="#00FFFFFF"
+            app:labelBehavior="withinBounds"
+            app:thumbColor="#FFFFFF"
+            app:tickColor="@android:color/transparent"
+            app:tickColorActive="@android:color/transparent"
+            app:tickColorInactive="@android:color/transparent"
+            app:trackColor="#AEFFFFFF"
+            app:trackColorActive="#FFFFFF"
+            app:trackColorInactive="#97FFFFFF" />
 
         <FrameLayout
             android:layout_width="match_parent"
@@ -248,5 +261,21 @@
             tools:layout_conversion_absoluteHeight="35dp"
             tools:layout_conversion_absoluteWidth="35dp" />
     </androidx.cardview.widget.CardView>
+
+    <ScrollView
+        android:id="@+id/cardScr"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView6"
+        tools:layout_editor_absoluteX="50dp">
+
+        <LinearLayout
+            android:id="@+id/linLayCrd"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
