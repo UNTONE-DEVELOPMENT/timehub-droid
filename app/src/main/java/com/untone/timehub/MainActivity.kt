@@ -41,6 +41,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         val addBtn = findViewById<TextView>(R.id.textView6)
         var handler: Handler = Handler()
+        val listV = findViewById<ScrollView>(R.id.cardScr)
         var animationDone: Boolean = false //may be userful in the future idk
         val darkenBg = findViewById<CardView>(R.id.bgDark)
         val addNewTimeZoneCard = findViewById<CardView>(R.id.addFore)
@@ -55,12 +56,12 @@ class MainActivity : AppCompatActivity() {
         val mainLay = findViewById<ConstraintLayout>(R.id.clay)
         val texTU = findViewById<TextView>(R.id.textView9)
 
+        listV.setOnClickListener(null)
+
         handler.postDelayed(Runnable {
             texTU.text = utcBar.value.toString()
             handler.postDelayed(runnable!!, delay.toLong())
         }.also { runnable = it }, delay.toLong())
-
-    println("HERE LOOK HERE HERE HEREEEEE " + utcBar.value)
 
 try {
 
@@ -132,6 +133,7 @@ try {
             addNewTimeZoneCard.animate().scaleY(-1f).alpha(1.0f)
             descEd.inputType = InputType.TYPE_CLASS_TEXT
             namEd.inputType = InputType.TYPE_CLASS_TEXT
+            utcBar.isEnabled = true
         }
         addNewTimeZoneCard.rotationX = -180f
         addBtn.setOnClickListener{
@@ -141,6 +143,7 @@ try {
             addNewTimeZoneCard.animate().scaleY(-1f).alpha(1.0f)
             descEd.inputType = InputType.TYPE_CLASS_TEXT
             namEd.inputType = InputType.TYPE_CLASS_TEXT
+            utcBar.isEnabled = true
         }
         btnCl.setOnClickListener{
             darkenBg.animate().alpha(0.0f).setDuration(1000)
@@ -154,6 +157,7 @@ try {
             namEd.setText("")
             utcBar.value = 0f
             namEd.inputType = InputType.TYPE_NULL
+            utcBar.isEnabled = false
         }
         doneBtn.setOnClickListener {
             var timeCard = CardView(this)
@@ -201,9 +205,11 @@ try {
             namEd.setText("")
             descEd.setText("")
             utcBar.value = 0f
+            utcBar.isEnabled = false
         }
     }
 }
+
 
 data class CardJS(
     val name: String,
